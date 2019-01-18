@@ -1,34 +1,49 @@
-# Exercise 2: using built-in string functions
+# Exercise 1: calling built-in functions
 
-# Create a variable `lyric` that contains the text "I like to eat apples and 
-# bananas"
-lyric <- "I like to eat apples and bananas"
+# Create a variable `my_name` that contains your name
+my_name <- "Esha Gulati"
 
-# Use the `substr()` function to extract the 1st through 13th letters from the 
-# `lyric`, and store the result in a variable called `intro`
-# Use `?substr` to see more about this function
-intro <- substr(lyric, 1, 13)
+# Create a variable `name_length` that holds how many letters (including spaces)
+# are in your name (use the `nchar()` function)
+name_length <- nchar(my_name)
 
-# Use the `substr()` function to extract the 15th through the last letter of the 
-# `lyric`, and store the result in a variable called `fruits`
-# Hint: use `nchar()` to determine how many total letters there are!
-fruits <- substr(lyric, 15, nchar(lyric))
+# Print the number of letters in your name
+print(name_length)
 
-# Use the `gsub()` function to substitute all the "a"s in `fruits` with "ee".
-# Store the result in a variable called `fruits_e`
-# Hint: see http://www.endmemo.com/program/R/sub.php for a simpmle example (or 
-# use `?gsub`)
-fruits_e <- gsub("a", "ee", fruits)
+# Create a variable `now_doing` that is your name followed by "is programming!" 
+# (use the `paste()` function)
+now_doing <- paste(my_name, "is programming!")
 
-# Use the `gsub()` function to substitute all the "a"s in `fruits` with "o".
-# Store the result in a variable called `fruits_o`
-fruits_o <- gsub("a", "o", fruits)
+# Make the `now_doing` variable upper case
+toupper(now_doing)
 
-# Create a new variable `lyric_e` that is the `intro` combined with the new
-# `fruits_e` ending. Print out this variable
-lyric_e <- paste(intro, fruits_e)
-print(lyric_e)
+### Bonus
 
-# Without making a new variable, print out the `intro` combined with the new
-# `fruits_o` ending
-print(paste(intro, fruits_o))
+# Pick two of your favorite numbers (between 1 and 100) and assign them to 
+# variables `fav_1` and `fav_2`
+fav_1 <- 8
+fav_2 <- 40
+
+# Divide each number by the square root of 201 and save the new value in the
+# original variable
+fav_1 <- fav_1 / sqrt(201)
+fav_2 <- fav_2 / sqrt(201)
+
+# Create a variable `raw_sum` that is the sum of the two variables. Use the 
+# `sum()` function for practice.
+raw_sum <- sum(fav_1, fav_2)
+
+# Create a variable `round_sum` that is the `raw_sum` rounded to 1 decimal place.
+# Use the `round()` function.
+round_sum <- round(raw_sum, 1)
+
+# Create two new variables `round_1` and `round_2` that are your `fav_1` and 
+round_1 <- round(fav_1, 1)
+round_2 <- round(fav_2, 1)
+
+# Create a variable `sum_round` that is the sum of the rounded values
+sum_round <- sum(round_1, round_2)
+
+# Which is bigger, `round_sum` or `sum_round`? (You can use the `max()` function!)
+max(sum_round, round_sum)
+
