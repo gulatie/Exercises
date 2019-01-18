@@ -1,25 +1,34 @@
-# Exercise 3: writing and executing functions
+# Exercise 2: using built-in string functions
 
-# Define a function `add_three` that takes a single argument and
-# returns a value 3 greater than the input
-add_three <- function(value) {
-  value + 3 
-}
+# Create a variable `lyric` that contains the text "I like to eat apples and 
+# bananas"
+lyric <- "I like to eat apples and bananas"
 
-# Create a variable `ten` that is the result of passing 7 to your `add_three` 
-# function
-ten <- add_three(7)
+# Use the `substr()` function to extract the 1st through 13th letters from the 
+# `lyric`, and store the result in a variable called `intro`
+# Use `?substr` to see more about this function
+intro <- substr(lyric, 1, 13)
 
-# Define a function `imperial_to_metric` that takes in two arguments: a number 
-# of feet and a number of inches
-# The function should return the equivalent length in meters
-imperial_to_metric <- function(feet, inches) {
-  total_inches <- feet * 12 + inches
-  meters <- total_inches * 0.0254
-  meters 
-}
+# Use the `substr()` function to extract the 15th through the last letter of the 
+# `lyric`, and store the result in a variable called `fruits`
+# Hint: use `nchar()` to determine how many total letters there are!
+fruits <- substr(lyric, 15, nchar(lyric))
 
-# Create a variable `height_in_meters` by passing your height in imperial to the
-# `imperial_to_metric` function
-height_in_meters <- imperial_to_metric(5, 11)
+# Use the `gsub()` function to substitute all the "a"s in `fruits` with "ee".
+# Store the result in a variable called `fruits_e`
+# Hint: see http://www.endmemo.com/program/R/sub.php for a simpmle example (or 
+# use `?gsub`)
+fruits_e <- gsub("a", "ee", fruits)
 
+# Use the `gsub()` function to substitute all the "a"s in `fruits` with "o".
+# Store the result in a variable called `fruits_o`
+fruits_o <- gsub("a", "o", fruits)
+
+# Create a new variable `lyric_e` that is the `intro` combined with the new
+# `fruits_e` ending. Print out this variable
+lyric_e <- paste(intro, fruits_e)
+print(lyric_e)
+
+# Without making a new variable, print out the `intro` combined with the new
+# `fruits_o` ending
+print(paste(intro, fruits_o))
