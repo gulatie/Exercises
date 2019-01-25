@@ -1,49 +1,39 @@
-# Exercise 1: calling built-in functions
+# Exercise 4: external data sets: Gates Foundation Educational Grants
 
-# Create a variable `my_name` that contains your name
-my_name <- "Esha Gulati"
+# Use the `read.csv()` functoin to read the data from the `data/gates_money.csv`
+# file into a variable called `grants` using the `read.csv()`
+# Be sure to set your working directory in RStudio, and do NOT treat strings as 
+# factors!
+grants <- read.cvs("data/gates_money.cvs", stringsAsFactors = FALSE)
 
-# Create a variable `name_length` that holds how many letters (including spaces)
-# are in your name (use the `nchar()` function)
-name_length <- nchar(my_name)
+# Use the View function to look at the loaded data
+view(grants)
 
-# Print the number of letters in your name
-print(name_length)
+# Create a variable `organization` that contains the `organization` column of 
+# the dataset
+organization <- grants$organization
 
-# Create a variable `now_doing` that is your name followed by "is programming!" 
-# (use the `paste()` function)
-now_doing <- paste(my_name, "is programming!")
+# Confirm that the "organization" column is a vector using the `is.vector()` 
+# function. 
+# This is a useful debugging tip if you hit errors later!
+is.vector(organization)
 
-# Make the `now_doing` variable upper case
-toupper(now_doing)
+## Now you can ask some interesting questions about the dataset
 
-### Bonus
+# What was the mean grant value?
+mean_value <- mean(grants$total_amount)
 
-# Pick two of your favorite numbers (between 1 and 100) and assign them to 
-# variables `fav_1` and `fav_2`
-fav_1 <- 8
-fav_2 <- 40
+# What was the dollar amount of the largest grant?
+highest_amount <- max(grants$total_amount)
 
-# Divide each number by the square root of 201 and save the new value in the
-# original variable
-fav_1 <- fav_1 / sqrt(201)
-fav_2 <- fav_2 / sqrt(201)
+# What was the dollar amount of the smallest grant?
+smallest_amount <- min(grants$total_amount)
 
-# Create a variable `raw_sum` that is the sum of the two variables. Use the 
-# `sum()` function for practice.
-raw_sum <- sum(fav_1, fav_2)
+# Which organization received the largest grant?
+largest_grant <- organization[grants$total_amount == highest_amount]
 
-# Create a variable `round_sum` that is the `raw_sum` rounded to 1 decimal place.
-# Use the `round()` function.
-round_sum <- round(raw_sum, 1)
+# Which organization received the smallest grant?
+smallest_grant <- organization[grants$total_amount == smallest_amount]
 
-# Create two new variables `round_1` and `round_2` that are your `fav_1` and 
-round_1 <- round(fav_1, 1)
-round_2 <- round(fav_2, 1)
-
-# Create a variable `sum_round` that is the sum of the rounded values
-sum_round <- sum(round_1, round_2)
-
-# Which is bigger, `round_sum` or `sum_round`? (You can use the `max()` function!)
-max(sum_round, round_sum)
-
+# How many grants were awarded in 2010?
+amount)grants$total_amount[grants$start_year == 2010]
